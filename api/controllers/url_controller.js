@@ -26,7 +26,6 @@ class UrlController {
             if (!response) {
                 res.json({ "msg": "URL is not found !" })
             }
-            return res.json(response);
             res.redirect(response.mainURL);
         }
         catch (error) {
