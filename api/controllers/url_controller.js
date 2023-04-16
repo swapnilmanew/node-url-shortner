@@ -7,6 +7,7 @@ class UrlController {
     static shortUrl = async (req, res) => {
         const shortURL = shortid.generate();
         const { originalURL } = req.body;
+        return res.json({ request: req.body });
         try {
             const model = new urlModel({
                 mainURL: originalURL,
