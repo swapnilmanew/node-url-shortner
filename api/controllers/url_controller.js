@@ -13,7 +13,7 @@ class UrlController {
                 shortURL: shortURL,
             });
             const response = await model.save();
-            res.json({ "shortURL": `${req.hostname}/api/redirect/${response.shortURL}`, "success": true });
+            res.json({ "shortURL": `${req.hostname}/redirect/${response.shortURL}`, "success": true });
         } catch (error) {
             res.json({ "error": error, "success": false })
         }
