@@ -3,7 +3,15 @@ const app = express();
 const cors = require("cors");
 const mongoose = require('mongoose');
 const port = 3000;
-app.use(cors());
+const corsOptions = {
+    origin: "*", // Change this to restrict access to specific domains
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://quotesapi:vayyTUJEKJhEsuWz@cluster0.mwy0g.mongodb.net/url_shortner?retryWrites=true&w=majority', {
