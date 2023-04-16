@@ -23,10 +23,13 @@ class UrlController {
         const { shortURL } = req.params;
         try {
             const response = await urlModel.findOne({ "shortURL": shortURL });
+            if (!response) {
+                res.json({ "msg": "URL is not found !" })
+            }
             res.redirect(response.mainURL);
         }
         catch (error) {
-            res.json({ error })
+            res.json({ "msg": "URL is not found !" })
         }
     }
 }
