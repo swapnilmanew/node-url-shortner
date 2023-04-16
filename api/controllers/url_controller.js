@@ -1,13 +1,11 @@
 const shortid = require("shortid");
 const urlModel = require("../models/url_model");
 
-
 class UrlController {
     // making the url short
     static shortUrl = async (req, res) => {
         const shortURL = shortid.generate();
         const { originalURL } = req.body;
-        return res.json({ request: req.body });
         try {
             const model = new urlModel({
                 mainURL: originalURL,
