@@ -19,6 +19,7 @@ db.once('open', () => console.log('MongoDB connected.'));
 // routes
 const urlRoutes = require("./api/routes/url_routes.js");
 app.use(urlRoutes);
+app.get("/", (req, res) => res.json({ "msg": "An API for shortening the urls developed by Swapnil Mane" }));
 app.listen(port, () => {
     console.log(`App is running on port ${port}`);
 })
