@@ -24,7 +24,6 @@ class UrlController {
         const { shortURL } = req.params;
         try {
             const response = await urlModel.findOne({ "shortURL": shortURL });
-            return res.json({ response });
             if (!response) {
                 res.json({ "msg": "URL is not found !" })
             }
